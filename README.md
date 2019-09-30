@@ -1,37 +1,56 @@
-## Welcome to GitHub Pages
+## Greetings & Salutations fellow (carbon based)? lifeforms
 
-You can use the [editor on GitHub](https://github.com/badquanta/badquanta.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You are probably aware that this is the github home page of BadQuanta.  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I'm just leaving the rest of the template here so this doesn't look some empty.
 
-### Markdown
+You can take a look at what I'm working on when I started this home page: [pixeldeck](https://github.com/badquanta/pixeldeck) but it's not in a working state at the time of this writing.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### About BadQuanta
+
+Just some guy interested in programming a better future.
+
+#### README.md
 
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
+# Header 1: Wtf?
+## Header 1.1: Where am I?
+## Header 1.2: Who are you?
+### Header 1.2.1: Can I leave now?
+# Header 2: Oh, you're still here...
 
 - Bulleted
-- List
+- Outline
+-- of what
+--- I'm
+-- going to cover
 
-1. Numbered
-2. List
+1. But, sometimes
+2. Order is
+3. Needed.
 
-**Bold** and _Italic_ and `Code` text
+**Important** and _Emphasied_ concepts will be `encoded` to __highlight__ ___markdown___ languages. ____I don't know what else to do.____
 
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+---
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/badquanta/badquanta.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# Header 1: Wtf?
+## Header 1.1: Where am I?
+## Header 1.2: Who are you?
+### Header 1.2.1: Can I leave now?
+# Header 2: Oh, you're still here...
 
-### Support or Contact
+- Bulleted
+- Outline
+-- of what
+--- I'm
+-- going to cover
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+1. But, sometimes
+2. Order is
+3. Needed.
+
+**Important** and _Emphasied_ concepts will be `encoded` to __highlight__ ___markdown___ languages. ____I don't know what else to do.____
