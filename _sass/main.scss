@@ -1,0 +1,13 @@
+/* Theme */
+$primary: rgb(0, 0, 168);
+$secondary: rgb(168, 168, 168);
+$success: rgb(0, 168, 0);
+$danger: rgb(168, 0, 0);
+$warning: rgb(168, 168, 0);
+$info: rgb(0, 168, 168);
+
+@import "TuiCss/src/tuicss.scss";
+
+.current {
+    color: green;
+  }

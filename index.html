@@ -1,0 +1,13 @@
+---
+layout: BARE
+my_number: 1
+show_sidebar: true
+---
+<h1>Index</h1>
+
+    {{ page.my_number }}
+    {% if page.show_sidebar %}
+    <div class="sidebar">
+        sidebar content
+    </div>
+    {% endif %}

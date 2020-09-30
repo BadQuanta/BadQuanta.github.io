@@ -1,0 +1,27 @@
+<details id="site.pages">
+    <summary>Site pages:</summary>
+    <ol>
+        {% for sitePage in site.pages %}
+        <li id="site.pages[{{ forloop.index }}]"><details>
+            <summary>
+                {{ sitePage.path }}
+            </summary>
+
+
+            <dl>
+                <dt>layout</dt>
+                <dd>{{ sitePage.layout }}</dd>
+                <dt>dir</dt>
+                
+                <dd>{{ sitePage.dir }}</dd>
+                <dt>name</dt>
+                <dd>{{ sitePage.name }}</dd>            
+                <dt>url</dt>
+                <dd>{{ sitePage.url }}</dd>
+                
+            </dl>
+            
+        </details></li>
+        {% endfor %}
+    </ol>
+</details>

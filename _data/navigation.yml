@@ -1,0 +1,8 @@
+- name: Site root
+  link: /
+- name: About
+  link: /about/
+- name: Collections
+  link: /collections/
+- name: Topics
+  link: /topics

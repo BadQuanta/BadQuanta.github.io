@@ -1,0 +1,11 @@
+<details id="site.data">
+    <summary>Data:</summary>
+    <ul>       
+        {% for item in site.data %}
+        <li><details id="site.data[{{ item[0] }}]">
+            <summary>"{{ item[0] }}"</summary>
+            <pre>{{ item[1] | inspect }}</pre>
+        </details></li>
+        {% endfor %}
+    </ul>
+</details>

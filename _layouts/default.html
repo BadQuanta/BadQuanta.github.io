@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+    {% feed_meta %}
+    {% seo %}
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    {% for stylesheet in page.stylesheets %}
+        <link rel="stylesheet" href="{{ stylesheet }}">
+    {% endfor %}
+    <!-- <layout.head> -->
+    {{ layout.head }}
+    <!-- </layout.head> -->
+</head>
+<body>
+    
+    {% if header %}
+        <header>
+            {{ header }}
+        </header>
+    {% endif %}
+    {% include top_nav.html %}
+    {{ content }}
+    <noscript>
+        Huh, noscripts.
+    </noscript>
+    {{ layout.scripts }}
+</body>
+
+</html>

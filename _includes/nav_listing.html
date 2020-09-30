@@ -1,0 +1,11 @@
+<nav class="nav-listing {{ include.classes }}">
+    <ul>
+        {% for item in include.list %}
+        <li id="{{ item.id }}">
+            <a href="{{ item.url || item.link || '#' }}">
+                {{ item.title }}
+            </a>
+        </li>            
+        {% endfor %}
+    </ul>
+</nav>

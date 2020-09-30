@@ -1,1 +1,38 @@
-theme: jekyll-theme-time-machine
+# Jekyll
+title: BadQuanta's blog
+email: BadQuanta@Gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Herein I collect my thoughts and journal them thoroughly.
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://badquanta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+#twitter_username: jekyllrb
+github_username:  badquanta
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+collections:
+    authors:
+    Credits:
+      output: true
+    TuiExamples:
+      output: true
+
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
