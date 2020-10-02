@@ -1,13 +1,60 @@
-/* Theme */
-$primary: rgb(0, 0, 168);
-$secondary: rgb(168, 168, 168);
-$success: rgb(0, 168, 0);
-$danger: rgb(168, 0, 0);
-$warning: rgb(168, 168, 0);
-$info: rgb(0, 168, 168);
 
 @import "TuiCss/src/tuicss.scss";
+@font-face {
+  font-family: LpDosVga;
+  src: url(/assets/css/fonts/Less_Perfect_DOS_VGA_Regular.ttf);
+}
 
+body {
+  font-family: LpDosVga;;
+}
 .current {
     color: green;
   }
+main.contact {
+  width: 75%;
+  margin: auto;
+  @extend .tui-bg-cyan-black;
+  @extend .container;
+  > div {
+    @extend .tui-window;
+    > fieldset {
+      @extend .tui-fieldset;
+      @extend .row;
+      > legend {
+        @extend .white-255-text;
+        @extend .center;
+      }
+      > div {
+        @extend .col;
+        @extend .s6;
+        
+        > input, > select {
+          @extend .tui-input;
+          @extend .col;
+          @extend .s8;
+        }
+        > label {
+          @extend .s4;
+          @extend .col;
+          > i {
+            @extend .yellow-255-text;
+            font-style: normal;
+          }
+        }
+        > fieldset {
+          > legend {
+            color: white;
+            position: relative;
+            top: -1em;
+          }
+          @extend .cyan-168;
+          @extend .black-255-text;
+          > label {
+            @extend .tui-radio;
+          }
+        }
+      }
+    }
+  }
+}
