@@ -2,28 +2,50 @@
 title: BadQuanta's blog
 email: BadQuanta@Gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Herein I collect my thoughts and journal them thoroughly.
-
+  A personal blog about life, politics, technology, and Star Trek.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://badquanta.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  badquanta
-
 # Build settings
+collections_dir: ./Library
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
+profile: true
 collections:
     authors:
     Credits:
       output: true
     TuiExamples:
       output: true
+    Topics:
+      output: true
+    Tests:
+      output: true
 
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "document"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "document"
+  - scope:
+      type: "Credits"
+    values:
+        layout: "document"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

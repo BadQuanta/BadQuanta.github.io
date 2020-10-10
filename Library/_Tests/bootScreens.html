@@ -1,0 +1,134 @@
+---
+
+---
+<script>
+
+    $(document).ready(function () {
+        let speed = 1000;
+        let screens = $('.boot-sceen').map((idx, el) => {
+            console.log('Screen ', idx);
+            let el$ = $(el);
+            return [
+                () => { return el$.show() },
+                ...($(el).find('> *').map((idx, subel) => {
+                    let subel$ = $(subel);
+                    return function () { return subel$.show(); }
+                })),
+                () => { return el$.hide() }
+            ];
+        });
+        let steps = [
+            () => { return $('body > :not(.boot-screen)').css('display', 'none'); },
+            ...screens.toArray().flat(),
+
+            () => {
+                return $({ Counter: 0 }).animate({
+                    Counter: $('.memCount').text()
+                }, {
+                    duration: speed * 4,
+                    easing: 'swing',
+                    step: function () {
+                        $('.memCount').text(Math.ceil(this.Counter));
+                    }
+                });
+            },
+            /*//() => { return $("header, footer, div.row").hide(); },
+            () => { return $("#session-1").fadeIn(speed); },
+            () => { return $("#session-2").fadeIn(speed * 2); },
+            () => { return $('#session-2 > span').html(window.navigator.appName); },
+            () => { return $("#session-3").fadeIn(speed * 2); },
+            () => { return $('#session-3 > span').html(window.navigator.appCodeName); },
+            () => { return $("#session-4").fadeIn(speed * 2); },
+            () => { return $('#pc-boot-1').fadeOut(speed); },
+            () => { return $("#pc-boot-2").slideDown(speed); },
+            () => { return $("footer").fadeIn(speed); },
+            () => { return $("header").fadeIn(speed); }*/
+
+        ]
+        console.log('Screens: %o,', screens);
+        console.log('Steps: $o', steps);
+        function doStep(num) {
+            console.log('Do step#%d', num);
+            steps[num]().promise().then(() => {
+                if (num < steps.length - 1) {
+                    doStep(num + 1);
+                } else {
+                    $('body > .boot-screen + :not(.boot-sceen)').show();
+                }
+            });
+        }
+        doStep(0);
+    });
+</script>
+<div id="pc-boot-1" class="boot-screen full-width full-height black white-text">
+    <br />
+    <img src="/assets/images/737218_man_512x512.png" class="white-168" height="48px"
+        style="margin: 0 0.5em; float: left; vertical-align: text-bottom;" />
+    <img src="/assets/images/red_star_PNG39.png" width="200px" style="float: right" />
+    <span>
+        BQ--BIOS v0.1, An Stellar Energy Comrade<br>
+        Copyleft {% include copyleft-C.html %} 1984-2020, B.Q. Software,
+        Collective.<br><br>
+        BQTV HTML BIOS Revision 1007 Beta 001<br><br>
+        Intel(R) Pentium(R) 4 2800 MHz Processor<br>
+        Memory Test : &nbsp;&nbsp; <span class="memCount">262144</span>K OK<br><br>
+    </span>
+
+    <div id="session-1" style="display: none">
+        Honor Couple and Kibitz BIOS Extension v1.0A<br>
+        Initialize Couple and Kibitz Cards...<br>
+        PNP init Completed<br><br>
+    </div>
+    <div id="session-2" style="display: none">
+        Detecting Navigator ......: <span></span>.<br>
+    </div>
+    <div id="session-3" style="display: none">
+        Detecting Code Name ......: <span></span>.<br>
+    </div>
+    <div id="session-4" style="display: none">
+        Detecting Secondary Master ...: Skip<br>
+        Detecting Secondaty Slave ....: None
+    </div>
+    <div class="tui-statusbar absolute black white-text">
+        <ul>
+            <li style="margin-left: 0px">Press <b>DEL</b> to enter SETUP, <b>Alt+F2</b> to enter EZ flash utility
+            </li>
+        </ul>
+        <ul>
+            <li style="margin-left: 0px">08/20/2002-1850E/ICH2/W627-P4T533-C</li>
+        </ul>
+    </div>
+</div>
+<div id="pc-boot-2" class="full-width black full-height full-width white-168-text" hidden>
+    <fieldset class="tui-fieldset white-168-border">
+        <div class="tui-border-double center"
+            style="padding-bottom: 0.5em; margin: 0 -13px; border-style: none none double none !important;">
+            BQTV-BIOS System Configuration {% include copyleft-C.html %} 1984-2020, BadQuanta Software Col.,
+        </div>
+        <table class="tui-table-grid">
+            <tbody>
+                <tr>
+                    <td width="50%" class="white-168-border">
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+
+                    </td>
+                    <td width="50%" class="white-168-border  center">
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                        Main Processor.........:<input name="Main Processor" /><br />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+    <span>25MHz CPU Clock</span><br />
+    <span>Starting BQ-TUI...</span>
+</div>

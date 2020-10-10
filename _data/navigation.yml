@@ -1,10 +1,16 @@
 - name: Site root
   link: /
-- name: About
-  link: /about/
+
 - name: Collections
   link: /collections/
 - name: Topics
   link: /topics
 - name: Contact
   link: /contact/
+- name: About
+  link: '#'
+  menu:
+    - name: This site.
+      link: /about/
+    - name: This theme.
+      link: /about/TuiCss.md

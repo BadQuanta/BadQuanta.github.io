@@ -1,0 +1,89 @@
+---
+
+---
+<div class="row">
+    <div class="col s12 m5 ">
+        <article class="panel">
+            <header>
+                Welcome!
+            </header>
+            <section>
+
+                <p><img class="left" style="margin: 0 1em 1em 0;" width="64px"
+                        src="/assets/icons/PROGM021.PNG" />{{ site.description }}</p>
+                <p>
+                    Below you'll find some highlights of all my interests.
+                </p>
+            </section>
+        </article>
+        <!-- Item select -->
+        <div class="utility">
+            <fieldset>
+                <legend>{{ site.categories.size }} Categories:</legend>
+                <ul>
+                    {% for collection in site.categories %}
+                    <li>
+                        <details>
+                            <summary class="cyan-255-hover black-255-text-hover">{{category.label}}</summary>
+
+                            <pre> {{ site[category.label]  | inspect | strip_html }}</pre>
+                        </details>
+
+                    </li>
+
+                    {% endfor %}
+                </ul>
+            </fieldset>
+        </div>
+
+    </div>
+
+
+    <div class="col s12 m7 ">
+        <main class="window">
+            <fieldset>
+                <legend class="center white-255-text">Index</legend>
+                <!--<button class="tui-fieldset-button left"><span class="green-255-text">↑</span></button>
+                <button class="tui-fieldset-button"><span class="green-255-text">■</span></button>-->
+                <p>
+                    You've reached the main index of <a class="tui-button white-168"
+                        href="{{ site.url }}">{{ site.url }}</a>.
+                    Here are some highlighted subjects:
+                    <!-- Button dropdown -->
+                <div class="tui-dropdown">
+                    <button class="tui-button">Dropdown</button>
+                    <div class="tui-dropdown-content">
+                        <fieldset class="tui-fieldset">
+                            Hello
+                            <p><a href="#!">Option</a></p>
+                        </fieldset>
+                    </div>
+                </div>
+                </p>
+                <ul class="full-width">
+                    <li>- <a class="tui-button">Star Trek</a>
+                        <blockquote class="inline-block right-float">I love me some Star Trek.</blockquote>
+                    </li>
+                    <li>- <a class="tui-button">Linux</a> Everywhere that I discuss Linux or Linux-related topics.</li>
+                    <li>- <a class="tui-button">Open-Source / Free Software</a> My own writings on the matter.
+                    </li>
+                </ul>
+                <br>
+                <div class="tui-divider"></div>
+                <br>
+                <a class="tui-button white-168">Copy</a>
+                <a class="tui-button white-168">Paste</a>
+                <br><br>
+                <div class="tui-fieldset-text">Text format: UTF-8</div>
+                <div class="tui-fieldset-text right">Ln: 2, Col: 5</div>
+            </fieldset>
+        </main>
+    </div>
+</div>
+
+
+
+<div class="fixed" style="top:1em; left:0;">
+    {% include Calculator.html %}
+    {% include TicTacToe.html %}
+</div>

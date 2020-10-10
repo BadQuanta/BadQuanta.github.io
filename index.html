@@ -1,13 +1,294 @@
 ---
-layout: BARE
-my_number: 1
-show_sidebar: true
----
-<h1>Index</h1>
 
-    {{ page.my_number }}
-    {% if page.show_sidebar %}
-    <div class="sidebar">
-        sidebar content
+---
+<div id="pc-boot-1" class="full-width full-height black white-text" style="padding: 2px">
+    <script>
+        $(document).ready(function () {
+
+            $("#session-1").fadeIn('slow', () => {
+                
+                $("#session-2").fadeIn('slow', () => {
+                    $('#session-2 > span').html(window.navigator.appName);
+                    $("#session-3").fadeIn('slow', ()=>{
+                        $('#session-3 > span').html(window.navigator.appCodeName);
+                        $('#pc-boot-1').fadeOut(5000);
+                    });
+                })
+            });
+        });
+    </script>
+    <p>
+    <br/>    
+    Honored Token BIOS v0.1, An Stellar Power Comrade<br>
+    Copyleft (<span style="display:inline-block;transform: scaleX(-1.0);">C</span>) 1984-2020, B.Q. Software,
+    Collective.<br><br>
+    ASUS P4T533-C ACPI BIOS Revision 1007 Beta 001<br><br>
+    Intel(R) Pentium(R) 4 2800 MHz Processor<br>
+    Memory Test : &nbsp;&nbsp; 262144K OK<br><br>
+    <img src="/assets/images/737218_man_512x512.png" class="white-168" height="48px" style="margin: 0 0.5em; float: left; vertical-align: text-bottom;" />
+    <img src="/assets/images/red_star_PNG39.png" width="200px" style="float: right" />    
+    </p>
+    <div id="session-1" style="display: none">
+        Award Plug and Play BIOS Extension v1.0A<br>
+        Initialize Plug and Play Cards...<br>
+        PNP init Completed<br><br>
     </div>
-    {% endif %}
+    <div id="session-2" style="display: none">
+        Detecting Navigator ......: <span></span>.<br>
+    </div>
+    <div id="session-3" style="display: none">
+        Detecting Code Name ......: <span></span>.<br>
+    </div>
+    <div id="session-4" style="display: none">
+        Detecting Secondary Master ...: Skip<br>
+        Detecting Secondaty Slave ....: None
+    </div>
+    <div class="tui-statusbar absolute black white-text">
+        <ul>
+            <li style="margin-left: 0px">Press <b>DEL</b> to enter SETUP, <b>Alt+F2</b> to enter EZ flash utility
+            </li>
+        </ul>
+        <ul>
+            <li style="margin-left: 0px">08/20/2002-1850E/ICH2/W627-P4T533-C</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m5 ">
+        <article class="panel">
+            <header>
+                Welcome!
+            </header>
+            <section>
+
+                <p><img class="left" style="margin: 0 1em 1em 0;" width="64px"
+                        src="/assets/icons/PROGM021.PNG" />{{ site.description }}</p>
+                <p>
+                    Below you'll find some highlights of all my interests.
+                </p>
+            </section>
+        </article>
+        <!-- Item select -->
+        <div class="utility">
+            <fieldset>
+                <legend>{{ site.categories.size }} Categories:</legend>
+                <ul>
+                    {% for collection in site.categories %}
+                    <li>
+                        <details>
+                            <summary class="cyan-255-hover black-255-text-hover">{{category.label}}</summary>
+
+                            <pre> {{ site[category.label]  | inspect | strip_html }}</pre>
+                        </details>
+
+                    </li>
+
+                    {% endfor %}
+                </ul>
+            </fieldset>
+        </div>
+
+    </div>
+
+
+    <div class="col s12 m7 ">
+
+
+        <main class="window">
+            <fieldset>
+                <legend class="center white-255-text">Index</legend>
+                <!--<button class="tui-fieldset-button left"><span class="green-255-text">↑</span></button>
+                <button class="tui-fieldset-button"><span class="green-255-text">■</span></button>-->
+                <p>
+                    You've reached the main index of <a class="tui-button white-168"
+                        href="{{ site.url }}">{{ site.url }}</a>.
+                    Here are some highlighted subjects:
+                    <!-- Button dropdown -->
+                <div class="tui-dropdown">
+                    <button class="tui-button">Dropdown</button>
+                    <div class="tui-dropdown-content">
+                        <fieldset class="tui-fieldset">
+                            Hello
+                            <p><a href="#!">Option</a></p>
+                        </fieldset>
+                    </div>
+                </div>
+                </p>
+                <ul class="full-width">
+                    <li>- <a class="tui-button">Star Trek</a>
+                        <blockquote class="inline-block right-float">I love me some Star Trek.</blockquote>
+                    </li>
+                    <li>- <a class="tui-button">Linux</a> Everywhere that I discuss Linux or Linux-related topics.</li>
+                    <li>- <a class="tui-button">Open-Source / Free Software</a> My own writings on the matter.
+                    </li>
+                </ul>
+                <br>
+                <div class="tui-divider"></div>
+                <br>
+                <a class="tui-button white-168">Copy</a>
+                <a class="tui-button white-168">Paste</a>
+                <br><br>
+                <div class="tui-fieldset-text">Text format: UTF-8</div>
+                <div class="tui-fieldset-text right">Ln: 2, Col: 5</div>
+            </fieldset>
+        </main>
+    </div>
+</div>
+
+
+
+
+{{ page.my_number }}
+{% if page.show_sidebar %}
+
+{% endif %}
+<div class="center" style="margin-top: 100px; margin-bottom: 100px">
+
+    <!-- Simple window -->
+    <div class="info-text">Simple window</div>
+    <div class="tui-window">
+        <fieldset class="tui-fieldset">
+            <legend>Window</legend>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur id vestibulum libero, id fermentum lorem.
+            Aenean aliquam erat leo, eu tempus ex ornare eu.
+            Sed ut lacus libero. Etiam rhoncus ipsum arcu.
+            In quis bibendum libero. Donec nec egestas ipsum.
+            Sed in venenatis diam. Nullam sollicitudin risus vel.
+            <br>
+            <div class="tui-divider"></div>
+            <br>
+            <button class="tui-button white-255-text">more...</button>
+            <button class="tui-button purple-168 white-255-text">share</button>
+        </fieldset>
+    </div>
+
+    <!-- Scrool window -->
+    <div class="info-text">Scrool window</div>
+    <div class="tui-window white-168 black-255-text">
+        <fieldset class="tui-fieldset">
+            <legend class="white-255-text">Window</legend>
+            <div style="overflow: scroll; height: 200px; width: 400px; white-space: nowrap;">
+                <span class="tui-shadow">The Lorem Ipsum </span><br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                Curabitur id vestibulum libero, id fermentum lorem.<br>
+                Aenean aliquam erat leo, eu tempus ex ornare eu.<br>
+                Sed ut lacus libero. Etiam rhoncus ipsum arcu.<br>
+                In quis bibendum libero. Donec nec egestas ipsum.<br>
+                Sed in venenatis diam. Nullam sollicitudin risus vel.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                Curabitur id vestibulum libero, id fermentum lorem.<br>
+                Aenean aliquam erat leo, eu tempus ex ornare eu.<br>
+                Sed ut lacus libero. Etiam rhoncus ipsum arcu.<br>
+                In quis bibendum libero. Donec nec egestas ipsum.<br>
+                Sed in venenatis diam. Nullam sollicitudin risus vel.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+                Curabitur id vestibulum libero, id fermentum lorem.<br>
+                Aenean aliquam erat leo, eu tempus ex ornare eu.<br>
+                Sed ut lacus libero. Etiam rhoncus ipsum arcu.<br>
+                In quis bibendum libero. Donec nec egestas ipsum.<br>
+                Sed in venenatis diam. Nullam sollicitudin risus vel.<br>
+            </div>
+        </fieldset>
+    </div>
+
+    <!-- Fieldset features -->
+    <div class="info-text">Fieldset features</div>
+    <div class="tui-window orange-168 black-255-text">
+        <fieldset class="tui-fieldset tui-border-solid white-border">
+            <legend class="center white-255-text">Window</legend>
+            <button class="tui-fieldset-button left"><span class="green-255-text">↑</span></button>
+            <button class="tui-fieldset-button"><span class="green-255-text">■</span></button>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+            Curabitur id vestibulum libero, id fermentum lorem.<br>
+            Aenean aliquam erat leo, eu tempus ex ornare eu.<br>
+            Sed ut lacus libero. Etiam rhoncus ipsum arcu.<br>
+            In quis bibendum libero. Donec nec egestas ipsum.<br>
+            Sed in venenatis diam. Nullam sollicitudin risus vel.<br>
+            <br>
+            <div class="tui-divider"></div>
+            <br>
+            <a class="tui-button white-168">Copy</a>
+            <a class="tui-button white-168">Paste</a>
+            <br><br>
+            <div class="tui-fieldset-text">Text format: UTF-8</div>
+            <div class="tui-fieldset-text right">Ln: 2, Col: 5</div>
+        </fieldset>
+    </div>
+
+    <!-- Item select -->
+    <div class="info-text">Item select</div>
+    <div class="tui-window purple-168">
+        <fieldset class="tui-fieldset no-legend tui-border-solid" style="width: 300px">
+            <ul>
+                <li class="cyan-255-hover black-255-text-hover">
+                    <a href="#!">
+                        <span class="tui-shortcut">A</span>
+                        <span>Register Tables</span>
+                    </a>
+                </li>
+                <li class="cyan-255-hover black-255-text-hover">
+                    <a href="#!">
+                        <span class="tui-shortcut">B</span>
+                        <span>Register Consumers</span>
+                    </a>
+                </li>
+                <li class="cyan-255-hover black-255-text-hover">
+                    <a href="#!">
+                        <span class="tui-shortcut">C</span>
+                        <span>Register Companies</span>
+                    </a>
+                </li>
+            </ul>
+        </fieldset>
+    </div>
+
+    <!-- Window textarea -->
+    <div class="info-text">Window textarea</div>
+    <div class="tui-window">
+        <fieldset class="tui-fieldset">
+            <legend class="center">MYAPP.CPP</legend>
+            <button class="tui-fieldset-button"><span class="green-255-text">↑</span></button>
+            <button class="tui-fieldset-button tui-fieldset-button-left"><span class="green-255-text">■</span></button>
+            <textarea class="tui-textarea" style="width: 400px; height: 200px;">#include &#60;iostream&#62;
+using namespace std;
+
+int main() 
+{
+    cout &#60;&#60; "Hello, World!";
+    return 0;
+}</textarea>
+        </fieldset>
+    </div>
+
+    <!-- Simple panel -->
+    <div class="info-text">Simple panel</div>
+    <div class="tui-panel cyan-168 black-255-text">
+        <div class="tui-panel-content">
+            <b>NOTE:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Vestibulum a posuere sapien,
+            nec
+            placerat
+            lorem.<br> Aliquam urna lorem, placerat et varius et, aliquam ac libero.
+        </div>
+    </div>
+
+    <!-- Panel title -->
+    <div class="info-text">Panel title</div>
+    <div class="tui-panel white-168 black-255-text">
+        <div class="tui-panel-header">
+            About
+        </div>
+        <div class="tui-panel-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>
+            Curabitur id vestibulum libero, id fermentum lorem.
+            <br><br>
+            <div class="center">
+                <button class="tui-button white-255" style="width: 80px">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="fixed" style="top:1em; left:0;">
+    {% include Calculator.html %}
+    {% include TicTacToe.html %}
+</div>

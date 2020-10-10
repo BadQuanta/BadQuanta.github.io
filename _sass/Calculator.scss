@@ -1,0 +1,70 @@
+.application {
+    @extend .absolute;
+    @extend .center;
+    cursor: move;
+    @extend .tui-window;
+    @extend .white-168;
+    > fieldset {
+        @extend .tui-fieldset;
+        @extend .content;
+    }
+    .buttons {
+        button {
+            @extend .tui-button;
+        }
+    }
+
+}
+#Calculator {
+    margin-top: 2em;
+    > fieldset {
+        .display {
+            padding: 0 1em 1em 1em;
+            input[name="operation"] {
+                @extend .tui-input;
+                @extend .col;
+                @extend .s3;
+                @extend .tui-input;
+            }
+            input[name="value"] {
+                @extend .tui-input;
+                @extend .blue-168;
+                @extend .white-255-text;
+                @extend .col;
+                @extend .s9;
+                text-align: right;
+            }
+        }
+
+        section.buttons {
+            padding: 1em;
+            button {
+                @extend .col;
+                @extend .s2;
+            }
+            button:not(:first-child) {
+                @extend .offset-s1;
+            }
+        }
+    }
+}
+#TicTacToe.application {
+    article.board {
+        section.buttons {
+            @extend .row;
+            padding: 0 1em 0 1em;
+            > button {
+                @extend .col;
+                @extend .s3;
+            }
+
+            > button:not(:first-child) {
+                @extend .offset-s1;
+            }
+
+            > button:disabled {
+                @extend .orange-168;
+            }
+        }
+    }
+}

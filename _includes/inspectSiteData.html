@@ -4,6 +4,8 @@
         {% for item in site.data %}
         <li><details id="site.data[{{ item[0] }}]">
             <summary>"{{ item[0] }}"</summary>
+            <dl>
+            </dl>
             <pre>{{ item[1] | inspect }}</pre>
         </details></li>
         {% endfor %}

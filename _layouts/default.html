@@ -5,27 +5,29 @@
     {% feed_meta %}
     {% seo %}
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    {% for stylesheet in page.stylesheets %}
-        <link rel="stylesheet" href="{{ stylesheet }}">
-    {% endfor %}
-    <!-- <layout.head> -->
-    {{ layout.head }}
-    <!-- </layout.head> -->
+    <title>{{ page.title }}</title>    
+    <link rel='stylesheet' href='/assets/css/styles.css' />
+    <link rel='stylesheet' href='/assets/jquery-ui-1.12.1/jquery-ui.css' />
 </head>
+
 <body>
-    
-    {% if header %}
-        <header>
-            {{ header }}
-        </header>
-    {% endif %}
-    {% include top_nav.html %}
-    {{ content }}
+    <script src="/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script src="/assets/js/tuicss.js"></script>
     <noscript>
         Huh, noscripts.
     </noscript>
-    {{ layout.scripts }}
+    
+    {{ content }}
+    
+    <header class="white-168">        
+        {% include top_nav.html %}
+        
+    </header>
+    <footer class="white-168 right-align">
+        "C:{{ page.url }}" published on {{ site.time | date_to_long_string }}
+    </footer>
+    
 </body>
 
 </html>

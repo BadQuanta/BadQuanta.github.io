@@ -1,5 +1,46 @@
-<nav>
+<nav class="tui-nav">
+  <span class="tui-datetime" data-format="h:m:s a"></span>
+  <ul>
+    <li class="tui-dropdown red-168-text">
+      &nbsp;≡&nbsp;
+      <div class="tui-dropdown-content">
+        <ul>
+          <li><a onclick="Calculator.show()" href="#">Calculator</a></li>
+          <li><a onclick="TicTacToe.show()" href="#">TicTacToe</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="tui-dropdown">
+      <a href="/">Document</a>
+      <div class="tui-dropdown-content">
+        <ul>
+          {% for page in site.pages %}
+            <li>
+              {{ page.name }}
+              <span class="tui-shortcut">{{ page.url }}</span>
+            </li>
+          {% endfor %}
+      </div>
+    </li>
     {% for item in site.data.navigation %}
-      <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% endif %}>{{ item.name }}</a>
+    {% if item.menu %}
+    <li class="tui-dropdown">
+
+    {% else %}
+    <li>
+    {% endif %}
+      <a href="{{ item.link }}" {% if page.url == item.link %}class="current" {% endif %}>{{ item.name }}</a>
+      {% if item.menu %}
+      <div class="tui-dropdown-content">
+        <ul>
+          {% for subitem in item.menu %}
+            <li>
+                <a href="{{ subitem.link }}">{{ subitem.name }}</a>
+            </li>
+          {% endfor %}
+      </div>
+      {% endif %}
+    </li>
     {% endfor %}
-  </nav>
+  </ul>
+</nav>

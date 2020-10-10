@@ -1,5 +1,5 @@
 ---
-layout: BARE
+
 ---
 
 # My collections:

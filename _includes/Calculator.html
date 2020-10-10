@@ -1,0 +1,140 @@
+<!-- Calculator Application Changelog:
+    2020-10-05 v0.1a:
+        Client class "Calculator" is really a simple static-singleton;
+        there is no point to initializing an instance of the Calculator "class" as only one
+        instance of the Calculator is ever intended to run at a time.
+-->
+<div id="Calculator" class="application" {% unless include.shown %}style="display: none;"{% endunless %}>
+    <script>
+        class Calculator {
+            static hide(){
+                $("#Calculator").hide();
+            }
+            static show(){
+                $("#Calculator").show();
+            }
+            static valueDispEl() {
+                return $(".display input[name='value']");
+            }
+            static operationDisplEl () {
+                return $(".display input[name='operation']");
+            }
+            static getValue() {
+                return this.valueDispEl().val();
+            }
+            static getFloat() {
+                return parseFloat(this.getValue());
+            }
+            static getOperation() {
+                return this.operationDisplEl().val();
+            }
+            static setValue(val) {
+                this.valueDispEl().val(val);
+            }
+            static setOperation(op) {
+                this.operationDisplEl().val(op);
+            }
+            static pushValue() {
+                this.lastFloat = this.getFloat();
+                this.setValue("");
+            }
+            static popValue() {
+                if (this.lastFloat) {
+                    this.setValue(this.lastFloat);
+                    this.setOperation("");
+                    this.lastFloat = undefined;
+                }
+            }
+            static digit(digit) {
+                this.setValue(this.getValue() + "" + digit);
+            }
+            static clearDisplay () {
+                this.setValue("");
+            }
+            static negate() {
+                this.setValue(-this.getValue());
+            }
+            static operation (op) {
+                console.log('Calculator Operation:', op)
+                this.setOperation(op);
+                this.pushValue();
+                $('#Calculator').attr("data-operation", op);
+            }
+            static equals () {
+                var op = this.getOperation();
+                if (op != "" && this.lastFloat != undefined) {
+                    var val = this.getFloat();
+                    console.log("%d %s %d", this.lastFloat, op, val);
+                    var res = this.operations[op](this.lastFloat, val);
+                    this.pushValue();
+                    this.setValue(res);
+                    this.setOperation("");
+                }
+            }
+            static operations = {
+                "%": function mod(num, den) {
+                    return num % den
+                },
+                "/": function div(num, den) {
+                    return num / den;
+                },
+                "*": function mul(val, scale) {
+                    return val * scale;
+                },
+                "-": function sub(val1, val2) {
+                    return val1 - val2;
+                },
+                "+": function add(val1, val2) {
+                    return val1 + val2;
+                },
+            }
+        };
+        $(function () {
+            console.log("Draggable",parseFloat(getComputedStyle(document.body).fontSize));
+
+            $(".application").draggable({grid: [ 24*(9/16), 24 ]});
+        });
+    </script>
+    <fieldset class="tui-fieldset">
+        <legend align="right">Calculator</legend>
+        <button onclick="Calculator.hide()" class="tui-fieldset-button left"><span class="green-255-text">↑</span></button>
+
+        <button class="tui-fieldset-button"><span class="green-255-text">■</span></button>
+        <div class="display">
+            <input name="operation" disabled value="" />
+            <input name="value" disabled value="" />
+        </div>
+        <article>
+            <section class="buttons">
+                <button onclick="Calculator.clearDisplay()">C</button>
+                <button onclick="Calculator.popValue()">&#60;-</button>
+                <button onclick="Calculator.operation('%')">%</button>
+                <button onclick="Calculator.negate()">+-</button>
+            </section>
+            <section class="buttons">
+                <button onclick="Calculator.digit('7')">7</button>
+                <button onclick="Calculator.digit('8')">8</button>
+                <button onclick="Calculator.digit('9')">9</button>
+                <button onclick="Calculator.operation('/')">/</button>
+            </section>
+            <section class="buttons">
+                <button onclick="Calculator.digit('4')">4</button>
+                <button onclick="Calculator.digit('5')">5</button>
+                <button onclick="Calculator.digit('6')">6</button>
+                <button onclick="Calculator.operation('*')">*</button>
+            </section>
+            <section class="buttons">
+                <button onclick="Calculator.digit('1')">1</button>
+                <button onclick="Calculator.digit('2')">2</button>
+                <button onclick="Calculator.digit('3')">3</button>
+                <button onclick="Calculator.operation('-')">-</button>
+            </section>
+            <section class="buttons">
+                <button onclick="Calculator.digit('0')">0</button>
+                <button onclick="Calculator.digit('.')">.</button>
+                <button onclick="Calculator.equals()"">=</button>
+            <button onclick=" Calculator.operation('+')">+</button>
+            </section>
+        </article>
+    </fieldset>
+</div>

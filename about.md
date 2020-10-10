@@ -1,5 +1,5 @@
 ---
-layout: BARE
+layout: document
 title: About
 permalink: /about/
 ---

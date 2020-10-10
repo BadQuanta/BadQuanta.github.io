@@ -1,60 +1,86 @@
 
 @import "TuiCss/src/tuicss.scss";
+.tui-fieldset-button, .tui-fieldset-text {
+  z-index: auto;
+}
 @font-face {
   font-family: LpDosVga;
   src: url(/assets/css/fonts/Less_Perfect_DOS_VGA_Regular.ttf);
 }
 
-body {
-  font-family: LpDosVga;;
+@font-face {
+  font-family: MpDosVga;
+  src: url(/assets/css/fonts/MorePerfectDOSVGA.ttf);
 }
-.current {
-    color: green;
+.tui-bg-white-black {background-size: 4px 4px; background-image: url('./images/bg-white-black.png'); background-repeat: repeat; }
+.hidden {visibility: hidden;}
+body {
+  background-attachment: fixed;
+  @extend .black;
+  @extend .white-168-text;
+  font-family: MpDosVga;
+  font-size: 24px;
+  margin: 2em 1em 2em 1em;
+  > header, > footer {
+    @extend .black-255-text;
+    @extend .fixed;
+    left: 0;
+    right: 0;
+  }  
+  > header { top: 0; }
+  > footer { bottom: 0; }
+    
+  .tui-window, .tui-panel {
+    margin-bottom: 2em;
   }
-main.contact {
-  width: 75%;
-  margin: auto;
-  @extend .tui-bg-cyan-black;
-  @extend .container;
-  > div {
+  .window {    
     @extend .tui-window;
+    @extend .full-width;
+    
     > fieldset {
       @extend .tui-fieldset;
-      @extend .row;
+      @extend .yellow-255-border-hover;
       > legend {
-        @extend .white-255-text;
-        @extend .center;
-      }
-      > div {
-        @extend .col;
-        @extend .s6;
+        padding-left: 1em;
+        padding-right: 1em;
         
-        > input, > select {
-          @extend .tui-input;
-          @extend .col;
-          @extend .s8;
-        }
-        > label {
-          @extend .s4;
-          @extend .col;
-          > i {
-            @extend .yellow-255-text;
-            font-style: normal;
-          }
-        }
-        > fieldset {
-          > legend {
-            color: white;
-            position: relative;
-            top: -1em;
-          }
-          @extend .cyan-168;
-          @extend .black-255-text;
-          > label {
-            @extend .tui-radio;
-          }
-        }
       }
     }
+
+  } // .window
+  .utility {
+    @extend .window;
+    @extend .orange-168;
+    @extend .black-text;  
+    
+    > fieldset {
+      @extend .cyan-255-border;
+      @extend .tui-border-solid;
+      pre {
+        
+        overflow: scroll;
+      }
+
+    }
+  } // .modal
+  main.window {    
+    ul > li {
+      margin-bottom: 1em;
+    }
   }
-}
+  .panel {
+    @extend .tui-panel;    
+    @extend .white-168;
+    @extend .black-255-text;
+
+    > header {
+      @extend .tui-panel-header;
+    }
+    > section {
+      @extend .tui-panel-content;
+      
+    }
+  }
+} //body
+
+@import "Calculator.scss";
